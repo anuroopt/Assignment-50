@@ -1,0 +1,47 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies..."
+          # Add commands to install dependencies here
+          # For example: npm install
+
+      - name: Build project
+        run: |
+          echo "Building project..."
+          # Add commands to build your project here
+          # For example: npm run build
+
+      - name: Add delay
+        run: |
+          echo "Adding delay..."
+          sleep 60  # Add a delay of 60 seconds (adjust as needed)
+
+      - name: Run tests
+        run: |
+          echo "Running tests..."
+          # Add commands to run your tests here
+          # For example: npm test
+
+      - name: Deploy project
+        run: |
+          echo "Deploying project..."
+          # Add commands to deploy your project here
+          # For example: ssh user@host 'deploy-script.sh'
